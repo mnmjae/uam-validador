@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UAM Document Verification</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background: #f4f4f4; }
+    .container { max-width: 500px; margin: auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    input[type="text"] { width: 100%; padding: 10px; margin: 10px 0; }
+    button { padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    button:hover { background: #0056b3; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="container" id="form-container">
+    <h2>Validación de copias auténticas emitidas por la UAM</h2>
+    <p>Introduzca el Código seguro de verificación:</p>
+    <input type="text" id="code" placeholder="0195-XXXX-XXXX-XXXX" />
+    <button onclick="verifyCode()">Validar</button>
+  </div>
+
+  <div class="container hidden" id="result-container">
+    <h3>Documento Verificado</h3>
+    <img src="dd.png" alt="Documento Verificado" style="max-width:100%;" />
+  </div>
+
+  <script>
+    function verifyCode() {
+      const inputCode = document.getElementById("code").value.trim();
+      const validCode = "0195-37F1-5FA5S0E0D-3A9C";
+      if (inputCode === validCode) {
+        document.getElementById("form-container").classList.add("hidden");
+        document.getElementById("result-container").classList.remove("hidden");
+      } else {
+        alert("Código incorrecto. Inténtelo de nuevo.");
+      }
+    }
+  </script>
+</body>
+</html>
